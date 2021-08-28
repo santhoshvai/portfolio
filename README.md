@@ -2,19 +2,19 @@
 
 ### Instructions
 
-1. Install [Node JS](https://nodejs.org/).
+1. Install [Node JS](https://nodejs.org/) and [Gulp](https://gulpjs.com/) globally.
 
 2. Install Gulp and the other Node packages. This may take a while:
 
-    ```
-    npm install
-    ```
+   ```
+   npm install
+   ```
 
 3. Run the app:
 
-    ```
-    gulp serve
-    ```
+   ```
+   gulp serve
+   ```
 
 4. Edit the [data](https://github.com/santhoshvai/portfolio/tree/master/app/data) and
    [media](https://github.com/santhoshvai/portfolio/tree/master/app/media) files. Your
@@ -23,6 +23,6 @@
 
 5. When you're done, generate the minified HTML/JavaScript/CSS/media files:
 
-    ```
-    gulp
-    ```
+   ```
+   gulp
+   ```
