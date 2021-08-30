@@ -42,7 +42,13 @@ gulp.task(
   gulp.series(async function () {
     return gulp
       .src("app/scripts/**/*.js")
-      .pipe($.uglify({ preserveComments: "some" }))
+      .pipe(
+        $.uglify({
+          output: {
+            comments: "some",
+          },
+        })
+      )
       .pipe(gulp.dest("dist/scripts"));
   })
 );
@@ -64,34 +70,35 @@ gulp.task(
 // Optimize Images
 gulp.task(
   "media",
-  gulp.series(async function () {
-    var stream1 = gulp
-      .src("app/media/**/*")
-      .pipe(gulp.dest("dist/media"))
-      .pipe($.size({ title: "media" }));
-
-    var stream2 = gulp
-      .src("app/images/**/*")
-      .pipe(
-        $.cache(
-          $.imagemin({
-            progressive: true,
-            interlaced: true,
-            svgoPlugins: [{ removeTitle: true }],
-          })
+  gulp.series(
+    function () {
+      return gulp
+        .src("app/media/**/*")
+        .pipe(gulp.dest("dist/media"))
+        .pipe($.size({ title: "media" }));
+    },
+    function () {
+      return gulp
+        .src("app/images/**/*")
+        .pipe(
+          $.cache(
+            $.imagemin({
+              progressive: true,
+              interlaced: true,
+              svgoPlugins: [{ removeTitle: true }],
+            })
+          )
         )
-      )
-      .pipe(gulp.dest("dist/images"))
-      .pipe($.size({ title: "images" }));
-
-    return merge(stream1, stream2);
-  })
+        .pipe(gulp.dest("dist/images"))
+        .pipe($.size({ title: "images" }));
+    }
+  )
 );
 
 // Copy All Files At The Root Level (app) and lib
 gulp.task(
   "copy",
-  gulp.series(async function () {
+  gulp.series(function () {
     return gulp
       .src(["app/*", "!app/html", "!app/data"], { dot: true })
       .pipe(gulp.dest("dist"))
@@ -102,7 +109,7 @@ gulp.task(
 // Libs
 gulp.task(
   "lib",
-  gulp.series(async function () {
+  gulp.series(function () {
     return gulp
       .src(["app/lib/**/*"], {
         dot: true,
@@ -115,7 +122,7 @@ gulp.task(
 // Copy Web Fonts To Dist
 gulp.task(
   "fonts",
-  gulp.series(async function () {
+  gulp.series(function () {
     return gulp
       .src(["app/fonts/**"])
       .pipe(gulp.dest("dist/fonts"))
@@ -126,7 +133,7 @@ gulp.task(
 // Compile and Automatically Prefix Stylesheets
 gulp.task(
   "styles",
-  gulp.series(async function () {
+  gulp.series(function () {
     // For best performance, don't add Sass partials to `gulp.src`
     return (
       $.rubySass(["app/styles/*.scss", "app/styles/**/*.css"], {
@@ -147,7 +154,7 @@ gulp.task(
 // HTML
 gulp.task(
   "html",
-  gulp.series(async function () {
+  gulp.series(function () {
     var globalData = {};
 
     fs.readdirSync("app/data").forEach(function (filename) {
@@ -246,7 +253,16 @@ gulp.task(
           })
         )
         // Concatenate And Minify JavaScript
-        .pipe($.if("*.js", $.uglify({ preserveComments: "some" })))
+        .pipe(
+          $.if(
+            "*.js",
+            $.uglify({
+              output: {
+                comments: "some",
+              },
+            })
+          )
+        )
         // Concatenate And Minify Styles
         // In case you are still using useref build blocks
         .pipe($.if("*.css", $.csso()))
@@ -311,7 +327,13 @@ gulp.task(
   gulp.series(
     "clean",
     "styles",
-    gulp.parallel("js", "bower", "html", "media", "fonts", "lib", "copy")
+    "js",
+    "bower",
+    "html",
+    "media",
+    "fonts",
+    "lib",
+    "copy"
   )
 );
 
@@ -333,7 +355,7 @@ gulp.task(
 // Deploy to GitHub pages
 gulp.task(
   "deploy",
-  gulp.series(async function () {
+  gulp.series(function () {
     return gulp.src("dist/**/*", { dot: true }).pipe(
       $.ghPages({
         remoteUrl: "https://github.com/santhoshvai/portfolio.git",
