@@ -5,7 +5,6 @@ var del = require("del");
 var browserSync = require("browser-sync");
 var swig = require("swig");
 var swigExtras = require("swig-extras");
-var reload = browserSync.reload;
 var yaml = require("js-yaml");
 var fs = require("fs");
 var through = require("through2");
@@ -24,8 +23,6 @@ var locals = {};
 try {
   locals = requireDir("local_node_modules", { camelcase: true });
 } catch (err) {}
-
-console.log({ locals });
 
 var AUTOPREFIXER_BROWSERS = [
   "ie >= 10",
@@ -287,13 +284,30 @@ gulp.task(
       },
     });
 
-    gulp.watch(["app/data/**/*"], gulp.series("html", reload));
-    gulp.watch(["app/html/**/*.html"], gulp.series("html", reload));
-    gulp.watch(["app/styles/**/*.{scss,css}"], gulp.series("styles", reload));
-    gulp.watch(["app/scripts/**/*.js"], gulp.series("js", reload));
-    gulp.watch(["app/media/**/*"], gulp.series(reload));
-    gulp.watch(["app/images/**/*"], gulp.series(reload));
-    gulp.watch(["app/templates/**/*"], gulp.series(reload));
+    gulp
+      .watch("app/data/**/*")
+      .on("change", gulp.series("html", browserSync.reload));
+    gulp
+      .watch("app/html/**/*.html")
+      .change("change", gulp.series("html", browserSync.reload));
+    gulp
+      .watch("app/styles/**/*.{scss,css}")
+      .change("change", gulp.series("styles", browserSync.reload));
+    gulp
+      .watch("app/scripts/**/*.js")
+      .change("change", gulp.series("js", browserSync.reload));
+    gulp
+      .watch("app/media/**/*")
+      .change("change", gulp.series(browserSync.reload));
+    gulp
+      .watch("app/media/**/*")
+      .change("change", gulp.series(browserSync.reload));
+    gulp
+      .watch("app/images/**/*")
+      .change("change", gulp.series(browserSync.reload));
+    gulp
+      .watch("app/templates/**/*")
+      .change("change", gulp.series(browserSync.reload));
   })
 );
 
