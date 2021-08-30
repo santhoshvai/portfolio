@@ -1,5 +1,30 @@
 # List of my portfolio projects.
+###################################################################################################
+- name: Gaiyo
+  date: 2019 - Current
+  extra_classes: tall
+  description: |
+    I am the senior mobile developer of Gaiyo App at Innovactory International BV. I am responsible for implementation and architecture of features like booking rental vehicles, payments for subscription based rental services and a dashboard of all transportation options for a particular route including public transport options.
+  actions:
+    - caption: iOS
+      url: https://apps.apple.com/nl/app/gaiyo-e-scooter-reisplanner/id1473702754
+    - caption: Google play
+      url: https://play.google.com/store/apps/details?id=com.innovactory.tripps&hl=en&gl=US
 
+  pages:
+    - image: Gaiyo-1.png
+      color: "#c2d6f2"
+      color2: "#3c6caf"
+
+    - image: Gaiyo-2.png
+      color: "material teal 100"
+      color2: "material teal 600"
+
+    - image: Gaiyo-3.png
+      color: "material orange 100"
+      color2: "material orange 600"
+
+###################################################################################################
 - name: Evlo
   date: 2016 – 2017
   extra_classes: tall
@@ -31,7 +56,7 @@
   date: 2016 – 2019
   extra_classes: tall
   description: |
-    I am the primary android developer of TimesUpp App at Innovactory International BV. Timesupp transforms your calendar into the perfect travel assistant. Know where you need to be and how to get there, right when you need to. See travel times for all your appointments and get a travel alert when it’s time to leave.
+    I was the primary android developer of TimesUpp App at Innovactory International BV. Timesupp transforms your calendar into the perfect travel assistant. Know where you need to be and how to get there, right when you need to. See travel times for all your appointments and get a travel alert when it’s time to leave.
 
   actions:
     - caption: Google play
