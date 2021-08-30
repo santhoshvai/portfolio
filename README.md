@@ -26,3 +26,9 @@
    ```
    gulp
    ```
+
+6. When you want to deploy them after generating the files:
+
+   ```
+   gulp deploy
+   ```
