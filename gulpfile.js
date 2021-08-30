@@ -289,25 +289,19 @@ gulp.task(
       .on("change", gulp.series("html", browserSync.reload));
     gulp
       .watch("app/html/**/*.html")
-      .change("change", gulp.series("html", browserSync.reload));
+      .on("change", gulp.series("html", browserSync.reload));
     gulp
       .watch("app/styles/**/*.{scss,css}")
-      .change("change", gulp.series("styles", browserSync.reload));
+      .on("change", gulp.series("styles", browserSync.reload));
     gulp
       .watch("app/scripts/**/*.js")
-      .change("change", gulp.series("js", browserSync.reload));
-    gulp
-      .watch("app/media/**/*")
-      .change("change", gulp.series(browserSync.reload));
-    gulp
-      .watch("app/media/**/*")
-      .change("change", gulp.series(browserSync.reload));
-    gulp
-      .watch("app/images/**/*")
-      .change("change", gulp.series(browserSync.reload));
+      .on("change", gulp.series("js", browserSync.reload));
+    gulp.watch("app/media/**/*").on("change", gulp.series(browserSync.reload));
+    gulp.watch("app/media/**/*").on("change", gulp.series(browserSync.reload));
+    gulp.watch("app/images/**/*").on("change", gulp.series(browserSync.reload));
     gulp
       .watch("app/templates/**/*")
-      .change("change", gulp.series(browserSync.reload));
+      .on("change", gulp.series(browserSync.reload));
   })
 );
 
