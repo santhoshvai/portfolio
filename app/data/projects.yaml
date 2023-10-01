@@ -1,10 +1,34 @@
 # List of my portfolio projects.
 ###################################################################################################
-- name: Gaiyo
-  date: 2019 - Current
+- name: Stream React Native Video and Chat SDK
+  date: 2022 - current
   extra_classes: tall
   description: |
-    I am the senior mobile developer of Gaiyo App at Innovactory International BV. I am responsible for implementation and architecture of features like booking rental vehicles, payments for subscription based rental services and a dashboard of all transportation options for a particular route including public transport options.
+    I am the senior react native developer at Stream.IO, Inc. I am responsible for implementation and architecture of Stream Video and Chat SDKs for react native. I am also responsible for the react native sample apps both the SDKs.
+  actions:
+    - caption: Video SDK
+      url: https://github.com/GetStream/stream-video-js/tree/main/packages/react-native-sdk
+    - caption: Chat SDK
+      url: https://github.com/GetStream/stream-chat-react-native
+
+  pages:
+    - image: stream-1.png
+      color: "#c2d6f2"
+      color2: "#3c6caf"
+
+    - image: stream-2.png
+      color: "material teal 100"
+      color2: "material teal 600"
+
+    - image: stream-3.png
+      color: "material orange 100"
+      color2: "material orange 600"
+###################################################################################################
+- name: Gaiyo
+  date: 2019 - 2022
+  extra_classes: tall
+  description: |
+    I was the senior mobile developer of Gaiyo App at Gaiyo BV. I was responsible for implementation and architecture of features like booking rental vehicles, payments for subscription based rental services and a dashboard of all transportation options for a particular route including public transport options.
   actions:
     - caption: iOS
       url: https://apps.apple.com/nl/app/gaiyo-e-scooter-reisplanner/id1473702754
@@ -56,11 +80,7 @@
   date: 2016 – 2019
   extra_classes: tall
   description: |
-    I was the primary android developer of TimesUpp App at Innovactory International BV. Timesupp transforms your calendar into the perfect travel assistant. Know where you need to be and how to get there, right when you need to. See travel times for all your appointments and get a travel alert when it’s time to leave.
-
-  actions:
-    - caption: Google play
-      url: https://play.google.com/store/apps/details?id=com.innovactory.timesupp
+    I was the primary android developer of TimesUpp App at Gaiyo BV. Timesupp transforms your calendar into the perfect travel assistant. Know where you need to be and how to get there, right when you need to. See travel times for all your appointments and get a travel alert when it’s time to leave.
 
   pages:
     - image: tu1.webp
