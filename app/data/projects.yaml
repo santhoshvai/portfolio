@@ -92,7 +92,7 @@
 ###################################################################################################
 
 - name: Thirukural
-  date: 2018 – Current
+  date: 2018
   extra_classes: tall
   description: |
     A material designed flutter app that shows all Thirukurals with their meanings in English and Tamil.
